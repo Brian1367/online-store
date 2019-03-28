@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_03_03_010827) do
+ActiveRecord::Schema.define(version: 2019_03_28_205243) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -406,6 +406,18 @@ ActiveRecord::Schema.define(version: 2019_03_03_010827) do
     t.index ["order_id"], name: "index_spree_payments_on_order_id"
     t.index ["payment_method_id"], name: "index_spree_payments_on_payment_method_id"
     t.index ["source_id", "source_type"], name: "index_spree_payments_on_source_id_and_source_type"
+  end
+
+  create_table "spree_paypal_express_checkouts", force: :cascade do |t|
+    t.string "token"
+    t.string "payer_id"
+    t.string "transaction_id"
+    t.string "state", default: "complete"
+    t.string "refund_transaction_id"
+    t.datetime "refunded_at"
+    t.string "refund_type"
+    t.datetime "created_at"
+    t.index ["transaction_id"], name: "index_spree_paypal_express_checkouts_on_transaction_id"
   end
 
   create_table "spree_preferences", force: :cascade do |t|
