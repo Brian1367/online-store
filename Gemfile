@@ -66,3 +66,4 @@ gem 'spree_gateway', '~> 3.4'
 gem 'rspec-rails', group: [:development, :test]
 gem 'webpacker', '~> 3.3'
 gem 'spree_paypal_express', github: 'spree-contrib/better_spree_paypal_express'
+gem 'shippo'
